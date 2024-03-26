@@ -23,4 +23,4 @@ auth_schemes:
         displayName: Base URL
         description: "Base URL for Highlevel API requests. For more information, visit https://docs.nango.dev/integrations/all/highlevel"
         type: string
-        default: "https://app.highlevel.com"
+        default: "https://app.gohighlevel.com"
