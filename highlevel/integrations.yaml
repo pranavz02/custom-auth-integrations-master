@@ -1,0 +1,27 @@
+name: highlevel
+unique_key: highlevel
+description: Highlevel is a messaging platform that allows businesses to communicate with prospective and existing customers within their app, on their website, through social media, or via email.
+logo: <link_to_highlevel_logo>
+categories: [marketing]
+auth_schemes:
+  - scheme_name: highlevel_oauth
+    auth_mode: OAUTH2
+    authorization_url: https://marketplace.gohighlevel.com/oauth/chooselocation
+    token_url: https://services.leadconnectorhq.com/oauth/token
+
+    token_params:
+      grant_type: authorization_code
+    authorization_params:
+      response_type: code
+
+    proxy:
+      base_url: "{{base_url}}"
+    disable_pkce: true
+
+    fields:
+      - name: base_url
+        displayName: Base URL
+        description: "Base URL for Highlevel API requests. For more information, visit https://docs.nango.dev/integrations/all/highlevel"
+        type: string
+        default: "https://api.highlevel.com"
+```
