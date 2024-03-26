@@ -24,4 +24,3 @@ auth_schemes:
         description: "Base URL for Highlevel API requests. For more information, visit https://docs.nango.dev/integrations/all/highlevel"
         type: string
         default: "https://api.highlevel.com"
-```
