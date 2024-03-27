@@ -1,0 +1,25 @@
+name: linkhut
+unique_key: linkhut
+description: Linkhut is a platform that allows users to save, organize, and share links.
+logo: <link_to_linkhut_logo>
+categories: [productivity]
+
+auth_schemes:
+  - scheme_name: linkhut_oauth
+    auth_mode: OAUTH2
+    authorization_url: https://ln.ht/_/oauth/authorize
+    token_url: https://api.ln.ht/v1/oauth/token
+    authorization_params:
+        response_type: code
+    token_params:
+        grant_type: authorization_code
+    default_scopes: ["links:write links:read"]
+    scope_separator: ','
+    proxy:
+    base_url: "{{base_url}}"
+    fields:
+      - name: base_url
+        displayName: Base URL
+        description: "The base URL for Linkhut API requests. For more information, visit https://docs.nango.dev/integrations/all/linkhut"
+        type: string
+        default: https://api.ln.ht
