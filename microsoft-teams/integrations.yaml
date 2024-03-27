@@ -1,0 +1,27 @@
+name: microsoft-teams
+unique_key: microsoft-teams
+description: Microsoft Teams is a proprietary business communication platform developed by Microsoft, as part of the Microsoft 365 family of products.
+logo: <link_to_microsoft-teams_logo>
+categories: [video, productivity]
+
+auth_schemes:
+  - scheme_name: microsoft-teams_oauth
+    auth_mode: OAUTH2
+    authorization_url: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    token_url: https://login.microsoftonline.com/common/oauth2/v2.0/token
+    authorization_params:
+        response_type: code
+        response_mode: query
+        prompt: consent
+    token_params:
+        grant_type: authorization_code
+    default_scopes: ["offline_access"]
+    scope_separator: ','
+    proxy:
+    base_url: "{{base_url}}"
+    fields:
+      - name: base_url
+        displayName: Base URL
+        description: "The base URL for Microsoft Teams API requests. For more information, visit https://docs.nango.dev/integrations/all/microsoft-teams"
+        type: string
+        default: https://graph.microsoft.com
