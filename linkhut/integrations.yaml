@@ -13,7 +13,7 @@ auth_schemes:
         response_type: code
     token_params:
         grant_type: authorization_code
-    default_scopes: ["links:write links:read"]
+    default_scopes: [""]
     scope_separator: ','
     proxy:
     base_url: "{{base_url}}"
