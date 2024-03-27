@@ -15,7 +15,7 @@ auth_schemes:
         prompt: consent
     token_params:
         grant_type: authorization_code
-    default_scopes: ["offline_access"]
+    default_scopes: ["User.Read"]
     scope_separator: ','
     proxy:
     base_url: "{{base_url}}"
