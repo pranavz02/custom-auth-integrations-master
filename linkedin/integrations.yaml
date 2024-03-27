@@ -23,4 +23,3 @@ auth_schemes:
         description: "The base URL for LinkedIn API requests. For more information, visit https://docs.nango.dev/integrations/all/linkedin"
         type: string
         default: https://api.linkedin.com/v2
-```
