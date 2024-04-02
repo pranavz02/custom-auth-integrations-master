@@ -1,0 +1,28 @@
+name: paypal-sandbox
+unique_key: paypal-sandbox
+description: PayPal Sandbox is a testing environment that enables you to test your PayPal integrations without using real money.
+logo: <link_to_paypal-sandbox_logo>
+categories: [payments]
+auth_schemes:
+  - scheme_name: paypal-sandbox_oauth
+    auth_mode: OAUTH2
+    authorization_url: https://www.sandbox.paypal.com/signin/authorize
+    token_url: https://api-m.sandbox.paypal.com/v1/oauth2/token
+    callback_url: https://backend.composio.dev/api/v1/auth-apps/add
+    disable_pkce: true
+    authorization_params:
+        response_type: code
+    token_params:
+        grant_type: authorization_code
+    refresh_params:
+        grant_type: refresh_token
+    default_scopes: ["openid profile https://uri.paypal.com/services/paypalattributes"]
+    scope_separator: ','
+    proxy:
+    base_url: "{{base_url}}"
+    fields:
+      - name: base_url
+        displayName: Base URL
+        description: "The base URL for PayPal Sandbox API requests. For more information, visit https://docs.nango.dev/integrations/all/paypal-sandbox"
+        type: string
+        default: https://api.sandbox.paypal.com
