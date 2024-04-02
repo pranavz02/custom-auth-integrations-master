@@ -1,0 +1,28 @@
+name: microsoft-tenant-specific
+unique_key: microsoft-tenant-specific
+description: Microsoft Tenant is a proprietary business communication platform developed by Microsoft, as part of the Microsoft 365 family of products.
+logo: <link_to_microsoft-tenant_logo>
+categories: [erp]
+auth_schemes:
+  - scheme_name: microsoft-tenant_oauth
+    auth_mode: OAUTH2
+    authorization_url: https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a/oauth2/v2.0/authorize
+    token_url: https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a/oauth2/v2.0/token
+    callback_url: https://backend.composio.dev/api/v1/auth-apps/add
+    disable_pkce: true
+    authorization_params:
+        response_type: code
+        response_mode: query
+        prompt: consent
+    token_params:
+        grant_type: authorization_code
+    default_scopes: ["User.Read"]
+    scope_separator: ','
+    proxy:
+    base_url: "{{base_url}}"
+    fields:
+      - name: base_url
+        displayName: Base URL
+        description: "The base URL for Microsoft Tenant API requests. For more information, visit https://docs.nango.dev/integrations/all/microsoft-tenant-specific"
+        type: string
+        default: https://graph.microsoft.com
