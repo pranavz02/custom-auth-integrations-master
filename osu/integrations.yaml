@@ -1,0 +1,28 @@
+name: osu
+unique_key: osu
+description: osu! is a free-to-play rhythm game primarily developed, published, and created by Dean "peppy" Herbert.
+logo: <link_to_osu_logo>
+categories: [gaming]
+auth_schemes:
+  - scheme_name: osu_oauth
+    auth_mode: OAUTH2
+    authorization_url: https://osu.ppy.sh/oauth/authorize
+    token_url: https://osu.ppy.sh/oauth/token
+    callback_url: https://backend.composio.dev/api/v1/auth-apps/add
+    disable_pkce: true
+    authorization_params:
+        response_type: code
+        response_mode: query
+        prompt: consent
+    token_params:
+        grant_type: authorization_code
+    default_scopes: ["public"]
+    scope_separator: ','
+    proxy:
+    base_url: "{{base_url}}"
+    fields:
+      - name: base_url
+        displayName: Base URL
+        description: "The base URL for osu! API requests. For more information, visit https://docs.nango.dev/integrations/all/osu"
+        type: string
+        default: https://osu.ppy.sh
