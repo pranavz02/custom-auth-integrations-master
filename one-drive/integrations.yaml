@@ -1,0 +1,28 @@
+name: one-drive
+unique_key: one-drive
+description: OneDrive is a file hosting service and synchronization service operated by Microsoft as part of its web version of Office.
+logo: <link_to_one-drive_logo>
+categories: [knowledge-base, storage]
+auth_schemes:
+  - scheme_name: one-drive_oauth
+    auth_mode: OAUTH2
+    authorization_url: https://login.live.com/oauth20_authorize.srf
+    token_url: https://login.live.com/oauth20_token.srf
+    callback_url: https://backend.composio.dev/api/v1/auth-apps/add
+    disable_pkce: true
+    authorization_params:
+        response_type: code
+        response_mode: query
+        prompt: consent
+    token_params:
+        grant_type: authorization_code
+    default_scopes: ["offline_access onedrive.readonly onedrive.appfolder onedrive.readwrite"] 
+    scope_separator: ','
+    proxy:
+    base_url: "{{base_url}}"
+    fields:
+      - name: base_url
+        displayName: Base URL
+        description: "The base URL for OneDrive API requests. For more information, visit https://docs.nango.dev/integrations/all/one-drive"
+        type: string
+        default: https://graph.microsoft.com
