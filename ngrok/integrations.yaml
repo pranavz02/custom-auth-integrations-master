@@ -1,0 +1,18 @@
+name: ngrok
+unique_key: ngrok
+description: Expose your local server to the internet.
+logo: <link_to_ngrok_logo>
+categories: [ tunneling ]
+documentation_doc_text: "\- [Ngrok API Documentation](https://ngrok.com/docs/api/reference/)"
+configuration_docs_text: "<Tip>Register your app at [Ngrok Developer Console](https://ngrok.com/docs/api/reference/).</Tip> \nOnce you create the App, find the _API Key_ field.
+\n
+After registering the app, copy the API KEY from the app page. On Composio's [supported apps](https://app.composio.dev/apps) page, find Ngrok and click "Enable". Paste your API KEY, then Save to connect Ngrok."
+get_current_user_endpoint: "https://api.ngrok.com/api/tunnels"
+
+auth_schemes:
+  - scheme_name: ngrok_api_key
+    auth_mode: API_KEY
+    proxy:
+      base_url: "https://api.ngrok.com"
+      headers:
+        Authorization: "Bearer ${apiKey}"

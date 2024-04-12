@@ -1,0 +1,18 @@
+// auth through api_key
+name: alchemy
+unique_key: alchemy
+description: Alchemy is a no-code platform that makes it easy to build apps for your business.
+logo: <link_to_alchemy_logo>
+categories: [ no-code, app-builder ]
+documentation_doc_text: "\- [Alchemy API Documentation](https://docs.alchemy.com/reference/api-overview)"
+configuration_docs_text: "<Tip>Register your app at [Alchemy Developer Console](https://docs.alchemy.com/docs/alchemy-quickstart-guide).</Tip> \nOnce you create the App, find the _API Key_ field.
+\n
+After registering the app, copy the API KEY from the app page. On Composio's [supported apps](https://app.composio.dev/apps) page, find Alchemy and click "Enable". Paste your API KEY, then Save to connect Alchemy."
+get_current_user_endpoint: "https://api.alchemy.com/v0/users/me"
+auth_schemes:
+  - scheme_name: alchemy_api_key
+    auth_mode: API_KEY
+    proxy:
+      base_url: "https://api.alchemy.com"
+      headers:
+        Authorization: "Bearer ${apiKey}"
