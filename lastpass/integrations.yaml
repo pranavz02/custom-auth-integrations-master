@@ -1,0 +1,21 @@
+name: lastpass
+unique_key: lastpass
+description: LastPass is a password manager that stores encrypted passwords online.
+logo: <link_to_lastpass_logo>
+categories: [ password-manager ]
+documentation_doc_text: "\- [LastPass API Documentation](https://support.lastpass.com/s/document-item)"
+configuration_docs_text: "<Tip>Register your app at [LastPass Developer Console](https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass/uac_advanced_keys_OAuth.html&_LANG=enus).</Tip> \nOnce you create the App, find the _Redirect URIs_ field and configure the below Redirect URL:
+``` 
+https://backend.composio.dev/api/v1/auth-apps/add
+```
+After registering the app, copy the Client ID from the app page and generate/copy the Client Secret. On Composio's [supported apps](https://app.composio.dev/apps) page, find LastPass and click "
+Enable". Paste your Client ID and Secret, then Save to connect LastPass."
+get_current_user_endpoint: ""
+callback_url: https://backend.composio.dev/api/v1/auth-apps/add
+auth_schemes:
+  - scheme_name: lastpass_oauth
+    auth_mode: OAUTH2
+    authorization_url: "https://lastpass.com/login/oauth/authorize"
+    token_url: "https://lastpass.com/login/oauth/access_token"
+    default_scopes: ["read", "write", "delete", "user"]
+    token_response_metadata: [access_token, scope, token_type, user_id]
